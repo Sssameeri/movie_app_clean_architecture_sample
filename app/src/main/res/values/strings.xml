@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">MovieApp</string>
-    <string name="continue_with_facebook">continue with facebook</string>
-    <string name="login">Login</string>
-    <string name="hello">Hello</string>
-    <string name="continue_without_login">continue without login</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-</resources>
