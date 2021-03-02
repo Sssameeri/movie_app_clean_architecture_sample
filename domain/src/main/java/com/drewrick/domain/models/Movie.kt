@@ -8,7 +8,6 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "movie")
 data class Movie(
     @PrimaryKey(autoGenerate = true)
-    @Ignore
     val id: Int,
     @SerializedName("original_title")
     val original_title: String,
