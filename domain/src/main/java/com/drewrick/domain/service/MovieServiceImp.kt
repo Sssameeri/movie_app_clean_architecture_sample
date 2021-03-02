@@ -1,5 +1,6 @@
 package com.drewrick.domain.service
 
+import androidx.paging.DataSource
 import com.drewrick.domain.models.Movie
 import com.drewrick.domain.repositories.DATABASE
 import com.drewrick.domain.repositories.Repository
@@ -22,8 +23,17 @@ class MovieServiceImp @Inject constructor(
             }
     }
 
+    override fun getMoviesByPage(): Single<List<Movie>> {
+        TODO("Not yet implemented")
+    }
+
     override fun insertMovies(movies: ArrayList<Movie>) {
         databaseRepository.insertMovies(movies)
     }
+
+    override fun getMoviesFromDatabase(): DataSource.Factory<Int, Movie> {
+        return databaseRepository.getMoviesFromDatabase()
+    }
+
 
 }

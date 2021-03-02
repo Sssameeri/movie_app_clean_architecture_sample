@@ -1,5 +1,6 @@
 package com.drewrick.data.repository
 
+import androidx.paging.DataSource
 import com.drewrick.data.database.dao.MovieDao
 import com.drewrick.domain.models.Movie
 import com.drewrick.domain.repositories.Repository
@@ -11,11 +12,12 @@ import javax.inject.Inject
 class DatabaseRepositoryImp @Inject constructor(
     val movieDao: MovieDao
 ) : Repository {
+
     override fun getMovies(): Single<List<Movie>> {
         TODO("Not yet implemented")
     }
 
-    override fun getMoviesByPage(): Single<List<Movie>> {
+    override fun getMoviesByPage(page: Long): Single<List<Movie>> {
         TODO("Not yet implemented")
     }
 
@@ -25,4 +27,9 @@ class DatabaseRepositoryImp @Inject constructor(
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe()
     }
+
+    override fun getMoviesFromDatabase(): DataSource.Factory<Int, Movie> {
+        return movieDao.getMovies()
+    }
+
 }

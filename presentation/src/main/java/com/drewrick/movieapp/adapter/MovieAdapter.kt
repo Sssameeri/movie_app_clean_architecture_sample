@@ -1,12 +1,15 @@
 package com.drewrick.movieapp.adapter
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.drewrick.domain.models.Movie
+import com.drewrick.movieapp.adapter.viewholder.MovieViewHolder
+import com.drewrick.movieapp.databinding.MovieItemBinding
 
-class MovieAdapter() :
+class MovieAdapter :
     PagedListAdapter<Movie, RecyclerView.ViewHolder>(DiffUtilCallback) {
 
     object DiffUtilCallback : DiffUtil.ItemCallback<Movie>() {
@@ -20,14 +23,16 @@ class MovieAdapter() :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        TODO("Not yet implemented")
+        return MovieViewHolder(
+            MovieItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        getItem(position)?.let { (holder as MovieViewHolder).bind(it) }
     }
-
-
-
-
 }
